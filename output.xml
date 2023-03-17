@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20230317 16:50:24.804" rpa="false" schemaversion="3">
+<suite id="s1" name="Amazon Teste Copy" source="c:\Users\Administrator\Documents\Programação\Amazon Pesquisas\amazon_teste copy.robot">
+<test id="s1-t1" name="Caso de teste 01 - Acesso ao menu &quot;Eletrônicos&quot;" line="6">
+<kw name="Given the user is on the Amazon website" library="amazon_resources">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230317 16:50:25.153" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20230317 16:50:25.153" endtime="20230317 16:50:26.397"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230317 16:50:26.398" level="INFO">Opening url 'https://www.amazon.com.br'</msg>
+<status status="PASS" starttime="20230317 16:50:26.397" endtime="20230317 16:50:28.772"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230317 16:50:28.772" endtime="20230317 16:50:28.982"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${LOGO_AMAZON}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230317 16:50:28.982" endtime="20230317 16:50:29.215"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:25.152" endtime="20230317 16:50:29.215"/>
+</kw>
+<kw name="When the user searches for &quot;The Lord of the Rings&quot; book" library="amazon_resources" sourcename="the user searches for &quot;${product}&quot; book">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=twotabsearchtextbox</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230317 16:50:29.217" endtime="20230317 16:50:29.237"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=twotabsearchtextbox</arg>
+<arg>${product}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230317 16:50:29.238" level="INFO">Typing text 'The Lord of the Rings' into text field 'id=twotabsearchtextbox'.</msg>
+<status status="PASS" starttime="20230317 16:50:29.237" endtime="20230317 16:50:29.539"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//input[@type='submit' and @value='Ir']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230317 16:50:29.540" level="INFO">Clicking button 'xpath=//input[@type='submit' and @value='Ir']'.</msg>
+<status status="PASS" starttime="20230317 16:50:29.539" endtime="20230317 16:50:29.723"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>${product}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230317 16:50:29.723" endtime="20230317 16:50:30.158"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:29.216" endtime="20230317 16:50:30.159"/>
+</kw>
+<kw name="And selects the first search result" library="amazon_resources">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230317 16:50:35.161" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230317 16:50:30.160" endtime="20230317 16:50:35.161"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${BOOK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230317 16:50:35.162" level="INFO">Clicking element '//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal'][contains(.,'The Lord of the Rings: Boxed Set')]'.</msg>
+<status status="PASS" starttime="20230317 16:50:35.161" endtime="20230317 16:50:37.883"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${BOOK_NAME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230317 16:50:37.884" endtime="20230317 16:50:37.918"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:30.159" endtime="20230317 16:50:37.918"/>
+</kw>
+<kw name="And adds the book to the shopping cart" library="amazon_resources">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//input[contains(@name,'submit.add-to-cart')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230317 16:50:37.921" level="INFO">Clicking button 'xpath=//input[contains(@name,'submit.add-to-cart')]'.</msg>
+<status status="PASS" starttime="20230317 16:50:37.920" endtime="20230317 16:50:39.367"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>locator=${ADD_TO_CART}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230317 16:50:39.496" level="INFO">Element '//span[@class='a-size-medium-plus a-color-base sw-atc-text a-text-bold'][contains(.,'Adicionado ao carrinho')]' is displayed.</msg>
+<status status="PASS" starttime="20230317 16:50:39.367" endtime="20230317 16:50:39.496"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20230317 16:50:39.498" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
+Make sure tests are run with a physical or virtual display.</msg>
+<msg timestamp="20230317 16:50:39.502" level="INFO" html="true">&lt;a href="screenshot_1.jpg"&gt;&lt;img src="screenshot_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230317 16:50:39.496" endtime="20230317 16:50:39.502"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:37.919" endtime="20230317 16:50:39.503"/>
+</kw>
+<kw name="And goes to the shopping cart page" library="amazon_resources">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${CART_NAV}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230317 16:50:39.506" level="INFO">Clicking element '//span[@aria-hidden='true'][contains(.,'Carrinho')]'.</msg>
+<status status="PASS" starttime="20230317 16:50:39.504" endtime="20230317 16:50:41.394"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=//h1[contains(.,'Carrinho de compras')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230317 16:50:41.394" endtime="20230317 16:50:41.480"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:39.504" endtime="20230317 16:50:41.480"/>
+</kw>
+<kw name="Then the shopping cart should contain the &quot;The Lord of the Rings&quot; book" library="amazon_resources">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>locator=//span[@class='a-truncate-cut'][contains(.,'The Lord of the Rings: Boxed Set')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230317 16:50:41.508" level="INFO">Element '//span[@class='a-truncate-cut'][contains(.,'The Lord of the Rings: Boxed Set')]' is displayed.</msg>
+<status status="PASS" starttime="20230317 16:50:41.482" endtime="20230317 16:50:41.508"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>locator=//span[@class='a-truncate-cut'][contains(.,'The Lord of the Rings: Boxed Set')]</arg>
+<arg>expected=The Lord of the Rings: Boxed Set</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230317 16:50:41.510" level="INFO">Verifying element '//span[@class='a-truncate-cut'][contains(.,'The Lord of the Rings: Boxed Set')]' contains exact text 'The Lord of the Rings: Boxed Set'.</msg>
+<status status="PASS" starttime="20230317 16:50:41.509" endtime="20230317 16:50:41.534"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:41.481" endtime="20230317 16:50:41.534"/>
+</kw>
+<kw name="When the user removes the book from the shopping cart" library="amazon_resources">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230317 16:50:44.535" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230317 16:50:41.535" endtime="20230317 16:50:44.535"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${DELETE_CART}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230317 16:50:44.536" level="INFO">Clicking element '//input[@value='Excluir']'.</msg>
+<status status="PASS" starttime="20230317 16:50:44.535" endtime="20230317 16:50:44.672"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:41.535" endtime="20230317 16:50:44.672"/>
+</kw>
+<kw name="Then the shopping cart should be empty" library="amazon_resources">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Seu carrinho de compras da Amazon está vazio.</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230317 16:50:44.675" endtime="20230317 16:50:45.140"/>
+</kw>
+<kw name="Take Screenshot" library="Screenshot">
+<doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
+<msg timestamp="20230317 16:50:45.142" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
+Make sure tests are run with a physical or virtual display.</msg>
+<msg timestamp="20230317 16:50:45.147" level="INFO" html="true">&lt;a href="screenshot_1.jpg"&gt;&lt;img src="screenshot_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230317 16:50:45.141" endtime="20230317 16:50:45.147"/>
+</kw>
+<status status="PASS" starttime="20230317 16:50:44.674" endtime="20230317 16:50:45.148"/>
+</kw>
+<doc>Esse teste verifica o menu eletronicos do site da Amazon.com.br
+e verifica a categoria Computadores e informática</doc>
+<tag>carrinho</tag>
+<tag>livro</tag>
+<status status="PASS" starttime="20230317 16:50:25.151" endtime="20230317 16:50:45.148"/>
+</test>
+<status status="PASS" starttime="20230317 16:50:24.811" endtime="20230317 16:50:45.150"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">carrinho</stat>
+<stat pass="1" fail="0" skip="0">livro</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Amazon Teste Copy">Amazon Teste Copy</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230317 16:50:39.498" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
+Make sure tests are run with a physical or virtual display.</msg>
+<msg timestamp="20230317 16:50:45.142" level="WARN">Taking screenshot failed: Taking screenshots is not supported on this platform by default. See library documentation for details.
+Make sure tests are run with a physical or virtual display.</msg>
+</errors>
+</robot>
